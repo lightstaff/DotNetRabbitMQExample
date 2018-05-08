@@ -86,7 +86,7 @@ namespace DotNetRabbitMQExample
                     var consumer = new EventingBasicConsumer(channel);
 
                     // 受信イベント定義
-                    consumer.Received += (model, ea) =>
+                    consumer.Received += (_, ea) =>
                     {
                         var msg = JsonConvert.DeserializeObject<ConsumedMessage>(Encoding.UTF8.GetString(ea.Body));
                         Console.WriteLine($"success consumed. message: {msg.Message}, timestamp: {msg.Timestamp}");
